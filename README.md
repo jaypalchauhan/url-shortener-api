@@ -12,7 +12,19 @@ A minimal URL shortener REST API built with **Express** and **SQLite**
 - SQLite storage in WAL mode — single file, no database server needed
 - Tested with Node's built-in test runner + supertest
 
-## Getting started
+## Run it with Docker (GitHub Packages)
+
+Every push to `main` runs the tests and publishes an image to GitHub Container
+Registry via GitHub Actions:
+
+```bash
+docker run -p 3000:3000 -v shortener-data:/data ghcr.io/jaypalchauhan/url-shortener-api:latest
+```
+
+The SQLite database lives on the `shortener-data` volume, so your links survive
+container restarts.
+
+## Getting started (from source)
 
 Requires Node.js 18+.
 
